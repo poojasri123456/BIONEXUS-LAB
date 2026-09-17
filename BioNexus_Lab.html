@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BioNexus Lab - Virtual Biotechnology Laboratory</title>
+<style>
+:root{--bg:#020617;--panel:#0f172a;--panel2:#111827;--border:#1e293b;--text:#e5e7eb;--muted:#94a3b8;--green:#34d399;--cyan:#22d3ee;--red:#fb7185;--amber:#fbbf24}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif}
+button{font:inherit;cursor:pointer}.nav{position:sticky;top:0;z-index:20;background:#020617ee;backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 4%}
+.navin{max-width:1200px;margin:auto;display:flex;align-items:center;gap:18px;flex-wrap:wrap}.brand{font-size:20px;font-weight:800;margin-right:auto}.brand span{color:var(--green)}
+.nav button{background:transparent;color:var(--muted);border:0;padding:9px 12px;border-radius:10px}.nav button:hover,.nav button.active{background:#064e3b;color:#a7f3d0}
+.container{max-width:1200px;margin:auto;padding:38px 20px}.hero{padding:35px;border:1px solid var(--border);border-radius:24px;background:linear-gradient(135deg,#0f172a,#052e2b);margin-bottom:25px}
+h1{font-size:clamp(30px,5vw,54px);margin:8px 0 12px}.hero p{color:var(--muted);max-width:780px;line-height:1.7}.eyebrow{color:var(--green);font-weight:800;letter-spacing:2px;font-size:12px}
+.btn{border:0;border-radius:12px;padding:12px 18px;font-weight:800}.primary{background:var(--green);color:#022c22}.secondary{background:#1e293b;color:var(--text);border:1px solid #334155}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}.card{background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:20px}.card h3{margin:6px 0 8px}.muted{color:var(--muted);line-height:1.6}.tag{display:inline-block;padding:4px 8px;border-radius:999px;background:#064e3b;color:#a7f3d0;font-size:11px;margin:3px}
+.level{display:flex;justify-content:space-between;gap:15px;align-items:center}.levelnum{width:42px;height:42px;border-radius:12px;background:#052e2b;color:var(--green);display:grid;place-items:center;font-weight:900}
+.hidden{display:none}.back{margin-bottom:18px}.workbench{min-height:300px;border-radius:20px;border:1px solid var(--border);background:repeating-linear-gradient(0deg,#0b1220,#0b1220 23px,#111827 24px),repeating-linear-gradient(90deg,transparent,transparent 23px,#111827 24px);display:grid;place-items:center;text-align:center;padding:25px}
+.scene{font-size:60px}.actions{display:grid;gap:10px;margin-top:18px}.action{background:#111827;border:1px solid #334155;color:var(--text);padding:14px;border-radius:12px;text-align:left}.action:hover{border-color:var(--green)}.feedback{padding:14px;border-radius:12px;margin-top:15px}.ok{background:#052e2b;border:1px solid #047857;color:#a7f3d0}.bad{background:#3f0d19;border:1px solid #9f1239;color:#fecdd3}
+.progressbar{height:9px;background:#1e293b;border-radius:99px;overflow:hidden}.progressbar div{height:100%;background:var(--green)}
+.stat{font-size:30px;font-weight:900}.chat{height:430px;display:flex;flex-direction:column}.messages{flex:1;overflow:auto;padding:12px}.msg{max-width:80%;padding:12px 14px;border-radius:15px;margin:8px 0;line-height:1.5}.ai{background:#111827;border:1px solid var(--border)}.user{background:#059669;color:#022c22;margin-left:auto}.chatbar{display:flex;gap:8px;border-top:1px solid var(--border);padding:12px}.chatbar input{flex:1;background:#020617;border:1px solid #334155;border-radius:12px;padding:12px;color:white}
+footer{border-top:1px solid var(--border);color:#64748b;padding:25px;text-align:center;margin-top:30px;font-size:12px}
+@media(max-width:650px){.navin{gap:5px}.nav button{padding:8px}.hero{padding:24px}.container{padding:25px 14px}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="navin">
+<div class="brand">🧬 Bio<span>Nexus</span> Lab</div>
+<button data-page="home" class="active">Home</button><button data-page="microbiology">Microbiology</button><button data-page="cell">Cell Biology</button><button data-page="viva">AI Viva</button><button data-page="progress">Progress</button><button data-page="assistant">AI Tutor</button>
+</div></nav>
+
+<main class="container">
+<section id="home" class="page">
+<div class="hero"><div class="eyebrow">INTERACTIVE VIRTUAL LABORATORY</div><h1>BioNexus Lab</h1><p>Learn microbiology and cell biology through interactive laboratory simulations, safety decisions, viva questions and progress tracking.</p><button class="btn primary" onclick="showPage('microbiology')">Start Lab →</button></div>
+<div class="grid">
+<div class="card"><h3>🦠 Microbiology</h3><p class="muted">Safety, aseptic technique, serial dilution, staining, media, antibiotic testing and fermentation.</p><button class="btn secondary" onclick="showPage('microbiology')">Explore</button></div>
+<div class="card"><h3>🔬 Cell Biology</h3><p class="muted">Microscopy, cell identification, mitosis, osmosis, counting, viability and cell culture.</p><button class="btn secondary" onclick="showPage('cell')">Explore</button></div>
+<div class="card"><h3>🎓 AI Viva</h3><p class="muted">Practice scientific viva questions and get instant keyword-based feedback.</p><button class="btn secondary" onclick="showPage('viva')">Practice</button></div>
+</div></section>
+
+<section id="microbiology" class="page hidden"><div class="hero"><div class="eyebrow">MICROBIOLOGY TRACK</div><h1>Microbiology Levels</h1><p>Build laboratory competency from safety fundamentals to bioprocessing.</p></div><div id="microLevels" class="grid"></div></section>
+<section id="cell" class="page hidden"><div class="hero"><div class="eyebrow">CELL BIOLOGY TRACK</div><h1>Cell Biology Levels</h1><p>Explore microscopy, division, cell counting, assays and culture concepts.</p></div><div id="cellLevels" class="grid"></div></section>
+
+<section id="simulation" class="page hidden"><button class="btn secondary back" onclick="goBack()">← Back</button><div id="simContent"></div></section>
+
+<section id="viva" class="page hidden"><div class="hero"><div class="eyebrow">VIVA PREPARATION</div><h1>AI Viva Practice</h1><p>Answer the question in your own words. The offline evaluator checks important scientific keywords.</p></div><div class="card"><div id="vivaTopic" class="tag"></div><h2 id="vivaQ"></h2><textarea id="vivaAns" rows="6" style="width:100%;background:#020617;color:white;border:1px solid #334155;border-radius:12px;padding:14px" placeholder="Type your answer here..."></textarea><br><br><button class="btn primary" onclick="evaluateViva()">Evaluate Answer</button><button class="btn secondary" style="margin-left:8px" onclick="nextViva()">Next Question</button><div id="vivaResult"></div></div></section>
+
+<section id="progress" class="page hidden"><div class="hero"><div class="eyebrow">STUDENT DASHBOARD</div><h1>Progress Dashboard</h1><p>Your completed simulations and viva practice are saved in this browser.</p></div><div class="grid"><div class="card"><div class="muted">Levels Completed</div><div class="stat" id="completedStat">0 / 10</div><div class="progressbar"><div id="progressFill" style="width:0%"></div></div></div><div class="card"><div class="muted">Viva Attempts</div><div class="stat" id="vivaStat">0</div></div><div class="card"><div class="muted">Average Viva Score</div><div class="stat" id="avgStat">0%</div></div></div><br><button class="btn secondary" onclick="resetProgress()">Reset Progress</button></section>
+
+<section id="assistant" class="page hidden"><div class="hero"><div class="eyebrow">AI LEARNING ASSISTANT</div><h1>BioNexus AI Tutor</h1><p>This standalone HTML version works without a server. Ask basic microbiology or cell-biology questions and use the built-in explanations.</p></div><div class="card chat"><div id="messages" class="messages"></div><div class="chatbar"><input id="chatInput" placeholder="Ask: Why is Gram staining used?"><button class="btn primary" onclick="sendChat()">Send</button></div></div></section>
+</main><footer>BioNexus Lab • Interactive Virtual Laboratory for Microbiology & Cell Biology</footer>
+
+<script>
+const levels=[
+['micro_l1','Microbiology',1,'Lab Equipment & Safety','Biosafety, PPE, aseptic technique and biomedical waste.','🥼🧤🥽'],
+['micro_l2','Microbiology',2,'Serial Dilution & Gram Staining','Serial dilution, CFU counting and Gram-staining concepts.','🧫🧪'],
+['micro_l3','Microbiology',3,'Microbial Growth & Media','Growth curves, culture media and selective/differential media.','🦠🌱'],
+['micro_l4','Microbiology',4,'Characterization & Antibiotic Testing','Microbial characterization and antibiotic susceptibility concepts.','💊🧫'],
+['micro_l5','Microbiology',5,'Fermentation & Bioprocessing','Bioreactors, fermentation and industrial microbiology.','⚗️🏭'],
+['cell_l1','Cell Biology',1,'Microscopy & Cell Identification','Microscope optics, cells and organelle identification.','🔬🧫'],
+['cell_l2','Cell Biology',2,'Mitosis & Osmosis','Cell division, mitotic stages and membrane transport.','🧬🔬'],
+['cell_l3','Cell Biology',3,'Cell Counting & Viability','Cell counting and live/dead cell concepts.','🔢🧪'],
+['cell_l4','Cell Biology',4,'Immunological Assays','Antibody-based assays and experimental principles.','🧬🧪'],
+['cell_l5','Cell Biology',5,'Advanced Cell Culture','Mammalian cell culture and advanced laboratory concepts.','🧫🧬']
+];
+const steps={
+micro_l1:[
+['PPE Donning','Wear appropriate lab coat, gloves and eye protection before laboratory work.',['Wear complete PPE','Wear gloves only'],0,'Complete PPE provides a physical barrier against splashes and contamination.','🥼 🧤 🥽'],
+['Aseptic Flame','For an open-flame simulation, identify the appropriate non-luminous blue flame.',['Use a blue flame with inner cone','Use a yellow luminous flame'],0,'A blue non-luminous flame indicates more complete combustion.','🔥'],
+['Loop Cooling','After flaming an inoculating loop, it must cool before contacting a culture.',['Cool the loop in the aseptic work area','Immediately touch the hot loop to culture'],0,'Cooling prevents heat from damaging the microbial sample.','🔥 🧫'],
+['Waste Segregation','Place contaminated materials in the designated biohazard/sharps containers.',['Segregate waste into appropriate containers','Put all waste into a normal bin'],0,'Correct segregation reduces exposure and sharps injury risks.','🗑️ ⚠️']
+],
+micro_l2:[
+['Serial Dilution','Choose the action that produces a controlled dilution series.',['Transfer measured sample into fresh sterile diluent at each step','Use the same undiluted sample for every plate'],0,'Serial dilution reduces cell concentration step-by-step for countable plates.','🧪'],
+['Gram Stain','Identify the key step that differentiates Gram-positive and Gram-negative cells.',['Controlled decolorization after crystal violet and iodine','Skip the decolorization step'],0,'Decolorization is the critical differential step in Gram staining.','🟣🩷']
+],
+cell_l1:[
+['Microscope Setup','Start microscopy with the lowest-power objective for safe specimen location.',['Start with the low-power objective','Start immediately with the highest-power objective'],0,'Low power gives a wider field and makes locating the specimen easier.','🔬'],
+['Oil Immersion','Identify when immersion oil is used.',['Use immersion oil with the 100× oil-immersion objective','Put oil on every objective'],0,'Immersion oil reduces refraction and improves numerical aperture with the oil objective.','🔬💧']
+],
+cell_l2:[
+['Mitosis','Identify the stage where chromosomes align at the cell equator.',['Metaphase','Interphase'],0,'In metaphase, duplicated chromosomes align at the metaphase plate.','🧬'],
+['Osmosis','Choose the correct description of osmosis.',['Movement of water across a selectively permeable membrane','Movement of DNA into the nucleus'],0,'Osmosis is the movement of water driven by differences in solute concentration.','💧']
+]
+};
+const viva=[
+['Gram Staining','Why do Gram-negative bacteria appear pink after Gram staining?',['gram-negative','pink','safranin','decolor','peptidoglycan'],'Gram-negative bacteria have a thin peptidoglycan layer and an outer membrane. During decolorization the crystal-violet iodine complex is removed, and the cells take up the pink/red counterstain safranin.'],
+['Aseptic Technique','Why must an inoculating loop be cooled before touching a bacterial culture?',['cool','heat','kill','culture'],'A hot loop can kill or damage the bacterial cells and can interfere with successful transfer.'],
+['Serial Dilution','Why is serial dilution used before counting microorganisms?',['dilution','count','concentration','colonies'],'Serial dilution reduces a dense microbial population to a concentration that can produce countable colonies.'],
+['Mitosis','What happens during metaphase?',['metaphase','align','equator','chromosome'],'During metaphase, duplicated chromosomes align near the equatorial plane of the cell.'],
+['Osmosis','What is osmosis?',['osmosis','water','membrane','concentration'],'Osmosis is the movement of water across a selectively permeable membrane due to a difference in solute concentration.'],
+['Oil Immersion','Why is immersion oil used with a 100× objective?',['oil','refractive','numerical aperture','resolution'],'Immersion oil has a refractive index close to glass, reducing light refraction and helping the objective collect more light for improved resolution.']
+];
+let currentLevel=null,currentStep=0,vivaIndex=0;
+const $=id=>document.getElementById(id);
+function showPage(id){document.querySelectorAll('.page').forEach(x=>x.classList.add('hidden'));$(id).classList.remove('hidden');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));if(id==='progress')updateProgress();if(id==='viva')renderViva();scrollTo(0,0)}
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>showPage(b.dataset.page));
+function renderLevels(domain,target){$(target).innerHTML=levels.filter(x=>x[1]===domain).map(l=>`<div class="card"><div class="level"><div><span class="tag">LEVEL ${l[2]}</span><h3>${l[3]}</h3></div><div class="levelnum">${l[2]}</div></div><p class="muted">${l[4]}</p><div style="font-size:34px;margin:12px 0">${l[5]}</div><button class="btn primary" onclick="openLevel('${l[0]}')">Open Level</button></div>`).join('')}
+renderLevels('Microbiology','microLevels');renderLevels('Cell Biology','cellLevels');
+function openLevel(id){currentLevel=id;currentStep=0;showPage('simulation');renderStep()}
+function goBack(){showPage(currentLevel&&currentLevel.startsWith('micro')?'microbiology':'cell')}
+function renderStep(){
+ const l=levels.find(x=>x[0]===currentLevel), arr=steps[currentLevel]||[['Lab Overview','This level is available as a learning overview in the standalone HTML version.',['Review the topic','Go back'],0,'Review the scientific principles and practise the related viva questions.','🧬']];
+ const s=arr[currentStep];
+ $('simContent').innerHTML=`<div class="hero"><span class="tag">${l[1]} • LEVEL ${l[2]}</span><h1>${l[3]}</h1><p>${l[4]}</p></div><div class="card"><div class="muted">STEP ${currentStep+1} / ${arr.length}</div><h2>${s[0]}</h2><p class="muted">${s[1]}</p><div class="workbench"><div><div class="scene">${s[5]}</div><p class="muted">Interactive laboratory workbench</p></div></div><div class="actions">${s[2].map((a,i)=>`<button class="action" onclick="chooseAction(${i})">${i===0?'✓':'○'} ${a}</button>`).join('')}</div><div id="stepFeedback"></div></div>`}
+function chooseAction(i){const s=(steps[currentLevel]||[])[currentStep];let good=i===s[3];$('stepFeedback').innerHTML=`<div class="feedback ${good?'ok':'bad'}"><b>${good?'✓ Correct':'✗ Try again'}</b><br>${good?s[4]:'Review the instruction and choose the safer/scientifically appropriate action.'}</div>${good&&currentStep<(steps[currentLevel].length-1)?'<br><button class="btn primary" onclick="nextStep()">Next Step →</button>':good?'<br><button class="btn primary" onclick="completeLevel()">✓ Complete Level</button>':''}`;if(good)markCompleted(currentLevel)}
+function nextStep(){currentStep++;renderStep()}
+function completeLevel(){markCompleted(currentLevel);showPage('progress')}
+function markCompleted(id){let p=JSON.parse(localStorage.getItem('bionexusProgress')||'{}');p[id]=true;localStorage.setItem('bionexusProgress',JSON.stringify(p))}
+function updateProgress(){let p=JSON.parse(localStorage.getItem('bionexusProgress')||'{}'),c=levels.filter(l=>p[l[0]]).length;$('completedStat').textContent=c+' / 10';$('progressFill').style.width=(c*10)+'%';let scores=JSON.parse(localStorage.getItem('bionexusViva')||'[]');$('vivaStat').textContent=scores.length;$('avgStat').textContent=(scores.length?Math.round(scores.reduce((a,b)=>a+b,0)/scores.length):0)+'%'}
+function resetProgress(){if(confirm('Reset all saved progress?')){localStorage.removeItem('bionexusProgress');localStorage.removeItem('bionexusViva');updateProgress()}}
+function renderViva(){let q=viva[vivaIndex];$('vivaTopic').textContent=q[0];$('vivaQ').textContent=q[0]+': '+q[1];$('vivaAns').value='';$('vivaResult').innerHTML=''}
+function evaluateViva(){let q=viva[vivaIndex],a=$('vivaAns').value.toLowerCase(),m=q[2].filter(k=>a.includes(k));let score=Math.round(m.length/q[2].length*100);let arr=JSON.parse(localStorage.getItem('bionexusViva')||'[]');arr.push(score);localStorage.setItem('bionexusViva',JSON.stringify(arr));$('vivaResult').innerHTML=`<div class="feedback ${score>=60?'ok':'bad'}"><b>Score: ${score}%</b><br>${score>=60?'Good! Your answer contains the main scientific ideas.':'Review the model explanation and try again.'}<br><br><b>Model explanation:</b> ${q[3]}</div>`}
+function nextViva(){vivaIndex=(vivaIndex+1)%viva.length;renderViva()}
+const replies=[
+[/gram|safranin/i,'Gram-negative cells lose the crystal-violet iodine complex during decolorization and then take up the safranin counterstain, appearing pink/red.'],
+[/serial|dilution|cfu/i,'Serial dilution decreases the microbial concentration step-by-step so that a plate can produce countable colonies.'],
+[/mitosis|metaphase|anaphase/i,'In mitosis, metaphase is when chromosomes align at the equatorial plane; anaphase is when sister chromatids separate toward opposite poles.'],
+[/osmosis/i,'Osmosis is the movement of water across a selectively permeable membrane due to a difference in solute concentration.'],
+[/microscope|oil immersion/i,'The 100× oil-immersion objective uses oil to reduce refraction between the glass coverslip and objective, improving light collection and resolution.']
+];
+function addMsg(text,cls){let d=document.createElement('div');d.className='msg '+cls;d.textContent=text;$('messages').appendChild(d);$('messages').scrollTop=$('messages').scrollHeight}
+addMsg('Hello! I am your BioNexus Lab Tutor. Ask me a microbiology or cell-biology question.','ai');
+function sendChat(){let q=$('chatInput').value.trim();if(!q)return;addMsg(q,'user');$('chatInput').value='';let r=replies.find(x=>x[0].test(q));addMsg(r?r[1]:'I can help with basic topics such as Gram staining, serial dilution, aseptic technique, mitosis, osmosis and microscopy. Try asking about one of these.','ai')}
+</script>
+</body>
+</html>
